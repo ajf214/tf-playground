@@ -5,7 +5,8 @@ provider "azurerm" {
     subscription_id = var.sub-id // optional config of which subscription I want to talk to
 }
 
-resource "azurerm_resource_group" "network" { // azurerm_resource_group is the "type", "hello-world" is the name I use to reference things
+// resource group for all resources
+resource "azurerm_resource_group" "rg" { // azurerm_resource_group is the "type", "hello-world" is the name I use to reference things
     name = var.resource_group
     location = var.location
 }
@@ -16,11 +17,12 @@ module "network" {
 }
 
 resource "azurerm_resource_group" "storage" { // "<PROVIDER>" "<NAME OF OBJECT>"
-    name = var.storage_rg
+    name = var.resource_group
     location = var.location
 }
 
 module "storage" {
     source = "./modules/storage"
     rg = var.resource_group
+    location = var.location
 }
