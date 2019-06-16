@@ -12,6 +12,8 @@ variable "subnets" {
   ]
 }
 
+
+
 resource "azurerm_virtual_network" "default" {
   name          = var.vnet-name
   resource_group_name = var.rg
