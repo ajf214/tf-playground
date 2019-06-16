@@ -16,6 +16,10 @@ locals {
     {
       name = "${var.vnet-name}-sub002"
       address_prefix = "10.0.1.0/24"
+    },
+    {
+      name = "${var.vnet-name}-sub003",
+      address_prefix = "10.0.2.0/24"
     }
   ]
 }
